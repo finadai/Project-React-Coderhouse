@@ -5,32 +5,58 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidgetComponent from '../CartWidgetComponent/CartWidgetComponent';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const NavBarComponent = () => { 
+const NavBarComponent = () => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products/categories")
+      .then((res) => setCategories(res.data))
+      .catch((error) => console.log(error));
+  });
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" style={{color:'black'}}>
+    <Navbar expand="lg" className="bg-body-tertiary" style={{ color: "black" }}>
       <Container fluid>
-        <Navbar.Brand href="#">The Halloween Site Store</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+            The Halloween Site Store
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: "100px" }}
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Costumes</Nav.Link>
+            <Nav.Link>
+              <Link
+                to={"/Category"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Costumes
+              </Link>
+            </Nav.Link>
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Masks</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Wigs
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
-                Accesories
-              </NavDropdown.Item>
+              
+                {categories.map((category, index) => {
+                  return (
+                <NavDropdown.Item  key={index}>
+                  <Link
+                    to={"/category"}
+                    style={{textDecoration: "none", color: "black"}}>
+                      {category}
+                  </Link>
+                </NavDropdown.Item>
+            );
+            })}
             </NavDropdown>
-            </Nav>
-            <CartWidgetComponent></CartWidgetComponent>
+          </Nav>
+          <CartWidgetComponent></CartWidgetComponent>
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -44,6 +70,6 @@ const NavBarComponent = () => {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBarComponent;
