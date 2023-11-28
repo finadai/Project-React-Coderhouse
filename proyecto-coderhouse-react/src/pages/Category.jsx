@@ -3,6 +3,8 @@ import axios from "axios";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import { useParams } from "react-router-dom";
 
+const {categoryId}  = useParams();
+
 const Category = () =>  {
 
     const [products, setProducts] = useState([]);
@@ -15,6 +17,9 @@ const Category = () =>  {
         })
         .catch((error) => console.log(error));
     });
+
+   
+    // console.log(categoryId);
 
     return <ItemListContainer products={products} />;    
 };

@@ -7,11 +7,11 @@ import { useParams } from "react-router-dom";
 const Item = () => {
 
     const [product, setProduct] = useState([]);
-        const{id}   =   useParams()
+        const {id}   =   useParams()
   
     useEffect(() => {
       axios
-        .get("https://dummyjson.com/products/${id}")
+        .get(`https://dummyjson.com/products/${id}`)
         .then((res) => {
           setProduct(res.data);
         })

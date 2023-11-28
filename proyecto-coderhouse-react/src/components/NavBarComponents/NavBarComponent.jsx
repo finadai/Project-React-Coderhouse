@@ -35,7 +35,7 @@ const NavBarComponent = () => {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link>
               <Link
-                to={"/Category"}
+                to={"/category/asdad"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Costumes
@@ -47,7 +47,7 @@ const NavBarComponent = () => {
                   return (
                 <NavDropdown.Item  key={index}>
                   <Link
-                    to={"/category"}
+                    to={"/category/adasd"}
                     style={{textDecoration: "none", color: "black"}}>
                       {category}
                   </Link>
