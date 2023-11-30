@@ -10,8 +10,7 @@ const ItemDetailContainer = () => {
       justifyContent: "space-around",
     }}
   >
-    {products.map((product) => {
-      return (
+  
         <Card 
         key={product.id} 
         style={{ width: "18rem", margin: 20, height: '500px' }}>
@@ -21,8 +20,7 @@ const ItemDetailContainer = () => {
             <Card.Text>{product.description}</Card.Text>
           </Card.Body>
         </Card>
-      );
-    })}
+      
   </div>
 );
 return <ItemDetailContainer products={products}   />

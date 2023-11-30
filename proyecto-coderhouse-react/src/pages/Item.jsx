@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
 
 const Item = () => {
 

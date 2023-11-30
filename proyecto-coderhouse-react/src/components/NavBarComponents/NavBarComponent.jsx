@@ -16,7 +16,7 @@ const NavBarComponent = () => {
       .get("https://dummyjson.com/products/categories")
       .then((res) => setCategories(res.data))
       .catch((error) => console.log(error));
-  });
+  },  []);
   return (
     <Navbar expand="lg" className="bg-body-tertiary" style={{ color: "black" }}>
       <Container fluid>
@@ -47,8 +47,9 @@ const NavBarComponent = () => {
                   return (
                 <NavDropdown.Item  key={index}>
                   <Link
-                    to={"/category/adasd"}
-                    style={{textDecoration: "none", color: "black"}}>
+                    to={`/category/${category}`}
+                    style={{textDecoration: "none", 
+                    color: "black"}}>
                       {category}
                   </Link>
                 </NavDropdown.Item>
