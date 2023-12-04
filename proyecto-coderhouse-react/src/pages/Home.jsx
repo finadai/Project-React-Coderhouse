@@ -13,7 +13,7 @@ const Home = () =>  {
         setProducts(res.data.products);
       })
       .catch((error) => console.log(error));
-  });
+  }, []);
   
     return  <ItemListContainer products={products}  />;
 };

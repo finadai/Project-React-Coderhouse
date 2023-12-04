@@ -6,13 +6,11 @@ import axios from 'axios';
 import MainRoutes from './routes/MainRoutes';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  const [products, setProducts] = useState([]);
   
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/products")
+      .get("https://dummyjson.com/products") //si borro ésto, en el navegador la página no se ve
       .then((res) => {
         setProducts(res.data.products);
       })

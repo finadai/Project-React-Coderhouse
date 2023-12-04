@@ -10,12 +10,12 @@ const Category = () =>  {
   
     useEffect(() => {
       axios
-        .get(`https://dummyjson.com/products/${categoryId}`)
+        .get(`https://dummyjson.com/products/category${categoryId}`)
         .then((res) => {
           setProducts(res.data.products);
         })
         .catch((error) => console.log(error));
-    });
+    }, [categoryId]);
 
   return <ItemListContainer products={products} />;    
 };
