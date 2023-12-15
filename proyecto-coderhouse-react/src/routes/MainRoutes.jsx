@@ -12,7 +12,6 @@ const MainRoutes = () => {
                 <Route path="/" element={<Home/>} />
                 <Route path="/category/:categoryId" element={<Category  />}/>
                 <Route path="/item/:id" element={<Item  />}/>
-
             </Routes>
         </BrowserRouter>
     );

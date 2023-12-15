@@ -4,6 +4,7 @@ import '../src/index.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import axios from 'axios';
 import MainRoutes from './routes/MainRoutes';
+import { CartProvider } from './context';
 
 function App() {
 
@@ -21,7 +22,9 @@ function App() {
   return (
     <>
       <div>
-        <MainRoutes />
+        <CartProvider>
+          <MainRoutes />
+        </CartProvider>
       </div>
       
     </>

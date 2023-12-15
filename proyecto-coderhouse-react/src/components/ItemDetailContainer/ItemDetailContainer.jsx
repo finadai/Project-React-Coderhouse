@@ -1,18 +1,16 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import ItemCount from "../ItemCount/ItemCount";
+import { ItemQuantitySelector } from "../ItemQuantitySelector";
+import { useSingleProduct } from "../../hooks/useProducts";
+// import { AddItemButton } from "../AddItemButton";
 
-const ItemDetailContainer = ({product}) => {
-    return ( 
-    <div
-    style={{
-      display: "flex",
-      flexWrap: "wrap",
-      width: "100vw",
-      justifyContent: "space-around",
-    }}
-  >
+export const ItemDetailContainer = () => {
+  const { productId } = useParams();
+
+  const { product, loading, error } = useSingleProduct(productId);
   
+      return (
         <Card 
         key={product.id} 
         style={{ width: "18rem", margin: 20, height: '500px' }}>
@@ -20,14 +18,10 @@ const ItemDetailContainer = ({product}) => {
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
-            <ItemCount stock={10} initial={1} onAdd={(count) => console.log(`Agregados ${count} productos al carrito`)} />
           </Card.Body>
+          <ItemQuantitySelector />
         </Card>
-      
-  </div>
-);
-
-};
-
+      );
+    };
 
 export default ItemDetailContainer;
