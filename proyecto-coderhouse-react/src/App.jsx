@@ -9,14 +9,14 @@ import { CartProvider } from './context';
 function App() {
 
   
-  useEffect(() => {
-    axios
-      .get("https://dummyjson.com/products") //si borro ésto, en el navegador la página no se ve
-      .then((res) => {
-        setProducts(res.data.products);
-      })
-      .catch((error) => console.log(error));
-  });
+  // useEffect(() => {
+  //   axios
+  //     .get("https://dummyjson.com/products") //si borro ésto, en el navegador la página no se ve
+  //     .then((res) => {
+  //       setProducts(res.data.products);
+  //     })
+  //     .catch((error) => console.log(error));
+  // });
   
   
   return (
@@ -31,5 +31,5 @@ function App() {
   );
 }
 
-export default App
+export default App;
 

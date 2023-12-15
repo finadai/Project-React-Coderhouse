@@ -3,12 +3,13 @@ import { Card } from "react-bootstrap";
 import ItemCount from "../ItemCount/ItemCount";
 import { ItemQuantitySelector } from "../ItemQuantitySelector";
 import { useSingleProduct } from "../../hooks/useProducts";
+import { collection, getFirestore, getDoc, doc } from "firebase/firestore";
 // import { AddItemButton } from "../AddItemButton";
 
 export const ItemDetailContainer = () => {
   const { productId } = useParams();
 
-  const { product, loading, error } = useSingleProduct(productId);
+  const { product, error } = useSingleProduct(productId);
   
       return (
         <Card 
